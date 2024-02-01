@@ -2,8 +2,16 @@ async function GetStops()
     {  
 
 
-          let stopsFile = await fetch("https://comet.mapstrat.com/current/RealTime_Temp/stops.txt");
+          let stopsFile = await fetch("https://comet.mapstrat.com/current/RealTime_Temp/stops.txt").then( data => 
+              {
+                     
+                  
+                  let StopsArray = await stopsFile.text().split(/\r\n |\r | \n/).map(substr => substr.split(','));
+                  return StopsArray;
+                  
+              });
+          };
         
-          let StopsArray = await stopsFile.text().split(/\r\n |\r | \n/).map(substr => substr.split(','));
-          return(StopsArray);
+    
+
     }
