@@ -81,59 +81,62 @@ console.log(timesArray);
   }
 
 
-
+let w;
+let h;
 function setup() {
-  createCanvas(window.innerWidth, window.innerHeight);
+ h = window.innerHeight;
+ w = window.innerWidth;
+ createCanvas(w, h);
+
 }
 
 function draw() {
   background('white');
 
-let w = window.innerWidth;
-let h = window.innerHeight;
+
 
   noStroke();
 let c = color('rgb(190,200,255)');
 fill(c);
-rect((w(30/1024)), h(20/642), w200/1024, h600/642, 20);
+rect((w * (30/1024)), h * (20/642), w * (200/1024), h * (600/642), 20);
 
   noStroke();
 let b = color('rgb(190,200,255)');
 fill(b);
-rect(w(250/1024), h(20/642), w600/1024, h300/642, 20);
+rect(w * (250/1024), h * (20/642), w * (600/1024), h * (300/642), 20);
   noStroke();
 let a = color('rgb(190,200,255)');
 fill(a);
-rect(w(250/1024),h(330/642), w290/1024, h290/642, 20);
+rect(w * (250/1024),h &* (330/642), w * (290)/1024, h * (290/642), 20);
   noStroke();
 let d = color('rgb(190,200,255)');
 fill(d);
-rect(w(560/1024),h(330/642), w290/1024, h290/642, 20);
+rect(w * (560/1024),h * (330/642), w * (290/1024), h * (290/642), 20);
 
   noStroke();
 let e = color('rgb(190,200,255)');
 fill(e);
-rect(w(870/1024), h(20/642), w200/1024, h600/642, 20);
+rect(w * (870/1024), h * (20/642), w * (200/1024), h * (600/642), 20);
 
    fill('white'); 
   textSize(32)
-  text('Transit Line Names', w40/1024, h40/642,1);
+  text('Transit Line Names', w * (40/1024), h * (40/642) ,1);
 
    fill('white'); 
   textSize(32)
-  text('MAP', w512/1024, h150/642,1);
+  text('MAP', w(512/1024) , h * (150/642),1);
 
   fill('white'); 
   textSize(32)
-  text('Ave Travel Time', w330/1024, h410/642,1);
+  text('Ave Travel Time', w * (330/1024), h * (410/642), 1);
 
   fill('white'); 
   textSize(32)
-  text('Ave Travel Length', w630/1024, h410/642,1);
+  text('Ave Travel Length', w * (630/1024), h * (410/642), 1);
 
      fill('white'); 
   textSize(32)
-  text('Misc. Info', w890/1024, h40/642,1);
+  text('Misc. Info', w * (890/1024) , h * (40/642),1);
 }
 
 
