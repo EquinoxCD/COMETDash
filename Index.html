@@ -1,3 +1,85 @@
+ <!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COMETDash</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="Comet Dashboard">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+<label for="stopsfile">Choose a corrected gtfs file (remove first line)</label>
+
+<input type="file" id="stopsfile" name="Input File" accept="text/txt" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+
+<script>
+
+
+  function readFile(event) {
+    let file = event.target.files[0];
+    if (file) {
+      new Promise(function(resolve, reject) {
+        let reader = new FileReader();
+        reader.onload = function (evt) {
+          resolve(evt.target.result);
+        };
+        reader.readAsText(file);
+        reader.onerror = reject;
+      })
+        .then(processFileContent)
+        .catch(function(err) {
+          console.log(err)
+        });
+    }
+  }
+
+
+  document.getElementById("stopsfile")
+    .addEventListener('change', readFile, false);
+
+  let StopsArray = [];
+
+
+  function printArray(arr) {
+
+      for (let y = 0; y < arr.length; y++) {
+        for (let x = 0; x < arr[y].length; x++) {
+
+
+          console.log(arr[x[y]]);
+        }
+
+      }
+
+
+
+  }
+
+  function processFileContent(data){
+    StopsArray = data.split(/\r\n|\r|\n/).map(substr => substr.split(','));
+
+    console.log(StopsArray)
+
+  }
+
+
+
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
 }
@@ -51,3 +133,10 @@ rect(w(870/1024), h(20/642), w200/1024, h600/642, 20);
   textSize(32)
   text('Misc. Info', w890/1024, h40/642,1);
 }
+
+
+</script>
+
+</body>
+
+</html>
