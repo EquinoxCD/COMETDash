@@ -3,7 +3,9 @@ function loadStops() {
     xhttp.onreadystatestatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
             let stopsArray = data.split(/\r\n|\r|\n/).map(substr => substr.split(','));
-
+            console.log(stopsArray);
+            
+            return stopsArray;
 
         
 
