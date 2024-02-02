@@ -1,17 +1,22 @@
-async function GetStops() 
-    {  
+function loadStops() {
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatestatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            let stopsArray = data.split(/\r\n|\r|\n/).map(substr => substr.split(','));
 
 
-          let stopsFile = await fetch("https://comet.mapstrat.com/current/RealTime_Temp/stops.txt").then( data => 
-              {
-                     
-                  
-                  let StopsArray = await stopsFile.text().split(/\r\n |\r | \n/).map(substr => substr.split(','));
-                  return StopsArray;
-                  
-              });
-          };
         
-    
 
-    }
+
+        }
+
+
+
+
+
+    }    
+http.open("GET", "https://comet.mapstrat.com/current/RealTime_Temp/stops.txt", true);
+xhttp.send();
+
+    
+}
